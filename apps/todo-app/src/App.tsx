@@ -1,62 +1,29 @@
 import React from "react";
-import logo from "./logo.svg";
-import { Counter } from "./features/counter/Counter";
-import { Button } from "components";
+import { Button, Tooltip } from "components";
 import "./App.css";
 
 console.log(Button);
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
+    <div
+      className="App"
+      style={{ display: "flex", justifyContent: "space-around" }}
+    >
+      <Tooltip position="right" text="right" containerClassName="mt-5">
+        right
+      </Tooltip>
 
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <Button onClick={() => {}} size="xxxl">
-            Click here
-          </Button>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <Tooltip position="top" text="top" containerClassName="mt-5">
+        top
+      </Tooltip>
+
+      <Tooltip position="left" text="left" containerClassName="mt-5">
+        left
+      </Tooltip>
+
+      <Tooltip position="bottom" text="bottom" containerClassName="mt-5">
+        bottom
+      </Tooltip>
     </div>
   );
 }

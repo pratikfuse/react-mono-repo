@@ -1,4 +1,5 @@
 import { Button } from "./Button";
 import InputField from "./InputField";
+import Tooltip from "./Tooltip";
 
-export { Button, InputField };
+export { Button, InputField, Tooltip };
