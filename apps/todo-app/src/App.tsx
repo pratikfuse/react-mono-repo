@@ -9,7 +9,7 @@ function App() {
       className="App"
       style={{ display: "flex", justifyContent: "space-around" }}
     >
-      <Tooltip position="right" text="right" containerClassName="mt-5">
+      <Tooltip position="right" text="rightright " containerClassName="mt-5">
         right
       </Tooltip>
 
