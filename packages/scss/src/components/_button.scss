@@ -1,0 +1,35 @@
+$spacing: (
+  none: 0rem,
+  xxxs: 0.25rem,
+  // 4px
+  xxs: 0.5rem,
+  // 8px
+  xs: 0.75rem,
+  // 12px
+  sm: 1rem,
+  // 16px
+  md: 1.5rem,
+  // 24px
+  lg: 2rem,
+  // 32px
+  xl: 3rem,
+  // 48px
+  xxl: 4.5rem,
+  // 72px
+  xxxl: 6rem,
+  // 96px
+) !default;
+
+.btn {
+  padding: 2rem;
+  border-radius: 5px;
+  &.btn-pill {
+    border-radius: 10px;
+  }
+
+  @each $size, $value in $spacing {
+    &.btn-#{$size} {
+      width: $value;
+    }
+  }
+}

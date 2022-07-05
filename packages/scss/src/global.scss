@@ -1,0 +1,18 @@
+@import "utils/variables";
+@import "utils/mixins.scss";
+
+@each $size, $value in $spacing {
+  .width-#{size} {
+    width: $value;
+  }
+
+  .heigth-#{size} {
+    height: $value;
+  }
+}
+
+@include generate(ml, margin-left);
+
+:root {
+  padding: 10px;
+}

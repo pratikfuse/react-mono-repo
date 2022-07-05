@@ -1,0 +1,26 @@
+{
+  "name": "react-udemy-mono-repo",
+  "version": "1.0.0",
+  "author": {
+    "email": "pratik.manandhar99@gmail.com",
+    "name": "pratikfuse"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "dev": "lerna run dev",
+    "start": "lerna run start --stream",
+    "start:todo": "lerna run start"
+  },
+  "devDependencies": {
+    "lerna": "^5.1.6"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "apps/*"
+    ]
+  }
+}
