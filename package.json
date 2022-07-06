@@ -12,7 +12,8 @@
     "bootstrap": "lerna bootstrap",
     "dev": "lerna run dev",
     "start": "lerna run start --stream",
-    "start:todo": "lerna run start"
+    "start:todo": "lerna run start",
+    "storybook": "lerna run storybook"
   },
   "devDependencies": {
     "lerna": "^5.1.6"

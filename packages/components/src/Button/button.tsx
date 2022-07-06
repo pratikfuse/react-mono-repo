@@ -2,9 +2,9 @@ import classnames from "classnames";
 import sizes from "../utils/sizes";
 import React, { FC } from "react";
 
-interface IButtonProps {
+export interface IButtonProps {
   onClick: (...args: any[]) => void;
-  classNames?: string | string[];
+  className?: string | string[];
   children?: React.ReactNode;
   pill?: boolean;
   size?: keyof typeof sizes;
@@ -15,7 +15,7 @@ export const Button: FC<IButtonProps> = (props) => {
     "btn",
     { [`btn-${props.size}`]: props.size },
     { "btn-pill": props.pill },
-    props.classNames
+    props.className
   );
   return (
     <button onClick={props.onClick} className={classNames}>
