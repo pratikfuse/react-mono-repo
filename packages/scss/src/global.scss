@@ -22,7 +22,7 @@
 @include generate(pl, padding-left);
 @include generate(pt, padding-top);
 @include generate(pr, padding-right);
-@include generate(pb, padding-bottop);
+@include generate(pb, padding-bottom);
 @include generate(p, padding);
 
 :root {

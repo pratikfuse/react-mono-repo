@@ -13,7 +13,8 @@
     "dev": "lerna run dev",
     "start": "lerna run start --stream",
     "start:todo": "lerna run start",
-    "storybook": "lerna run storybook"
+    "storybook": "lerna run storybook",
+    "test:unit": "lerna run test:unit"
   },
   "devDependencies": {
     "lerna": "^5.1.6"
@@ -23,5 +24,9 @@
       "packages/*",
       "apps/*"
     ]
+  },
+  "engines": {
+    "npm": "yarn-only",
+    "node": ">=16.14"
   }
 }
