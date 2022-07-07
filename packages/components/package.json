@@ -9,7 +9,7 @@
     "test": "jest --verbose",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:unit": "jest"
+    "test:unit": "jest --verbose"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
