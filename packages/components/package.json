@@ -40,7 +40,8 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
-    "react-hook-form": "^7.33.1"
+    "react-hook-form": "^7.33.1",
+    "react-loadable": "^5.5.0"
   },
   "jest": {
     "setupFilesAfterEnv": [

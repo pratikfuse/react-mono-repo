@@ -4,8 +4,8 @@ import { Provider } from "react-redux";
 import { store } from "./app/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { App } from "./App";
-import StudyManagementBuilder from "./feature/StudyManagement";
 import reportWebVitals from "./reportWebVitals";
+import Auth from "./sections/Auth";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -15,12 +15,15 @@ root.render(
     <BrowserRouter>
       <Provider store={store}>
         <Routes>
-          <Route element={<App />} path="/">
+          <Auth />
+          <App />
+          {/* <Route element={<div>Auth</div>} path="/auth/*" />
+          <Route element={<App />} path="/*">
             <Route
               path="study-management-builder/*"
               element={<StudyManagementBuilder />}
             />
-          </Route>
+          </Route> */}
         </Routes>
       </Provider>
     </BrowserRouter>

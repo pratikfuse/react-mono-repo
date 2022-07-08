@@ -9,7 +9,7 @@ const config = {
   },
   plugins: [ts()],
   preserveModules: true,
-  external: ["react", "scss"],
+  external: ["react", "scss", "classnames"],
 };
 
 export default config;

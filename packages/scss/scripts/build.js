@@ -25,3 +25,4 @@ const getComponents = () => {
 compile('src/global.scss', 'lib/global.css')
 compile('src/components/_button.scss', 'lib/button.css');
 compile('src/components/_tooltip.scss', 'lib/tooltip.css');
+compile('src/components/_page_loader.scss', 'lib/page_loader.css');
