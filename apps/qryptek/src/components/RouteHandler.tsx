@@ -1,4 +1,4 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet, Navigate, useLocation } from "react-router-dom";
 
 interface IRouteHandlerProps {
   routes: Array<IRoute>;
@@ -6,10 +6,35 @@ interface IRouteHandlerProps {
 }
 
 const RouteHandler: React.FC<IRouteHandlerProps> = ({ routes, container }) => {
+  const { pathname } = useLocation();
+
+  routes = [
+    ...routes,
+    {
+      component: <div>404</div>,
+      path: "*",
+    },
+  ];
+
   return (
     <Routes>
-      <Route element={container}>
+      <Route path="/" element={container}>
         {routes.map((route) => {
+          if (route.roles) {
+            // TODO fetch roles from redux auth store for the current user
+            if (route.roles.length) {
+              return (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={
+                    <Navigate to="/" replace state={{ from: pathname }} />
+                  }
+                />
+              );
+            }
+          }
+
           if (route.isIndex) {
             return (
               <Route
@@ -18,10 +43,6 @@ const RouteHandler: React.FC<IRouteHandlerProps> = ({ routes, container }) => {
                 key={route.path}
               />
             );
-          }
-
-          if (route.roles) {
-            return <div>Route needs {route.roles.join("|")}</div>;
           }
 
           return (
