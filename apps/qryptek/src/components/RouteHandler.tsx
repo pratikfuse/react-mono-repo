@@ -8,6 +8,7 @@ interface IRouteHandlerProps {
 const RouteHandler: React.FC<IRouteHandlerProps> = ({ routes, container }) => {
   const { pathname } = useLocation();
 
+  // append a 404 route to handle undefined routes
   routes = [
     ...routes,
     {
@@ -21,7 +22,7 @@ const RouteHandler: React.FC<IRouteHandlerProps> = ({ routes, container }) => {
       <Route path="/" element={container}>
         {routes.map((route) => {
           if (route.roles) {
-            // TODO fetch roles from redux auth store for the current user
+            // TODO check current user's roles/permissions
             if (route.roles.length) {
               return (
                 <Route

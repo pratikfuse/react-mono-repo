@@ -4,10 +4,10 @@ import { Provider } from "react-redux";
 import { store } from "./Common/redux/store";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import Public from "./Public";
 import App from "./App";
 import Main from "./main";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Auth from "./Auth";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -24,7 +24,7 @@ root.render(
               path="/app/*"
               element={<ProtectedRoute>{App}</ProtectedRoute>}
             />
-            <Route path="/auth/*" element={Public} />
+            <Route path="/auth/*" element={Auth} />
             <Route path="*" element={<div>404</div>} />
           </Routes>
         </Main>

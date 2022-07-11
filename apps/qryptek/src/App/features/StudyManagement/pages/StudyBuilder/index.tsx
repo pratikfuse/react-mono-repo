@@ -1,7 +1,7 @@
 import React from "react";
 
 const StudyBuilder: React.FC = () => {
-  return <div>Study Builddder</div>;
+  return <div>Study Buildder</div>;
 };
 
 export default StudyBuilder;

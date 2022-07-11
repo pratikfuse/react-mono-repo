@@ -1,9 +1,13 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import counterSlice from "src/sectionss/counter/counterSlice";
+import reducers from "./reducers";
 
 export const store = configureStore({
-  reducer: {
-    counter: counterSlice,
+  reducer: reducers,
+  devTools: process.env.NODE_ENV === "development",
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware({
+      serializableCheck: false,
+    });
   },
 });
 

@@ -1,12 +1,15 @@
 import React, { Suspense } from "react";
 
-const LOADER_COMPONENT_TIMEOUT = 3000;
-const LOADER_COMPONENT_DELAY = 800;
+// TODO Handle component delay and component timeout to avoid flicker
 
 interface ICreateComponentLoaderParams {
   component: () => Promise<{ default: React.ComponentType<any> }>;
-  fallback: React.ReactNode;
+  fallback?: React.ReactNode;
 }
+
+const FallbackComponent = () => {
+  return <div>Loading</div>;
+};
 
 const AsyncComponent: React.FC<ICreateComponentLoaderParams> = ({
   component,
@@ -14,7 +17,7 @@ const AsyncComponent: React.FC<ICreateComponentLoaderParams> = ({
 }) => {
   const LazyComponent = React.lazy(component);
   return (
-    <Suspense fallback={fallback}>
+    <Suspense fallback={fallback || <FallbackComponent />}>
       <LazyComponent />
     </Suspense>
   );
