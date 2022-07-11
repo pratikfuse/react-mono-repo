@@ -5,6 +5,7 @@ import envConfig from "../config/env";
 // const auth0 = new Auth0();
 
 export default class Api {
+  constructor() {}
   handleError = (error: any) => {
     switch (error.response.status) {
       case 401:
@@ -13,7 +14,7 @@ export default class Api {
         window.location.replace("/?msg=authentication failed");
         break;
       case 400:
-        let formErrors =
+        const formErrors =
           error.response.data.error || error.response.data.errors || {};
         return {
           ...formErrors,
@@ -63,7 +64,7 @@ export default class Api {
     });
   }
   get<Data, Response>(url: string, data: Data) {
-    let _self = this;
+    const _self = this;
     return new Promise<AxiosResponse<Response>>(function (resolve, reject) {
       _self
         .axiosFunction()
@@ -80,7 +81,7 @@ export default class Api {
   }
 
   delete<Data, Response>(url: string, data: Data) {
-    let _self = this;
+    const _self = this;
     return new Promise<AxiosResponse<Response>>(function (resolve, reject) {
       _self
         .axiosFunction()
@@ -97,7 +98,7 @@ export default class Api {
   }
 
   update<Data, Response>(url: string, data: Data) {
-    let _self = this;
+    const _self = this;
     return new Promise<AxiosResponse<Response>>(function (resolve, reject) {
       _self
         .axiosFunction()
