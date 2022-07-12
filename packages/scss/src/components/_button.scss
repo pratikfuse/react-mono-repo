@@ -1,5 +1,5 @@
 $spacing: (
-  none: 0rem,
+  none: 0,
   xxxs: 0.25rem,
   // 4px
   xxs: 0.5rem,
@@ -27,9 +27,7 @@ $spacing: (
     border-radius: 10px;
   }
 
-  @each $size,
-    $value in $spacing
-  {
+  @each $size, $value in $spacing {
     &.btn-#{$size} {
       width: $value;
     }
