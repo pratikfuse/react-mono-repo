@@ -1,16 +1,23 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux";
-import { store } from "./Common/redux/store";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import reportWebVitals from "./reportWebVitals";
-import App from "./App";
-import Main from "./main";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Auth from "./Auth";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './Common/redux/store';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import reportWebVitals from './reportWebVitals';
+import App from './App';
+import Main from './main';
+import ProtectedRoute from './components/ProtectedRoute';
+import Auth from './Auth';
 
-const container = document.getElementById("root")!;
+const container = document.getElementById('root')!;
 const root = createRoot(container);
+
+const f = () => null;
 
 root.render(
   <React.StrictMode>
@@ -22,7 +29,9 @@ root.render(
             <Route index element={<Navigate to="/app" />} />
             <Route
               path="/app/*"
-              element={<ProtectedRoute>{App}</ProtectedRoute>}
+              element={
+                <ProtectedRoute>{App}</ProtectedRoute>
+              }
             />
             <Route path="/auth/*" element={Auth} />
             <Route path="*" element={<div>404</div>} />
@@ -30,7 +39,7 @@ root.render(
         </Main>
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function
