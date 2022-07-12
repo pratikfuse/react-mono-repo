@@ -1,5 +1,5 @@
 {
-  "name": "components",
+  "name": "@lf-mono-repo/components",
   "version": "1.0.0",
   "main": "lib/index.js",
   "license": "MIT",
@@ -9,7 +9,8 @@
     "test": "jest --verbose",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:unit": "jest --verbose"
+    "test:unit": "jest --verbose",
+    "lint": "eslint ./src/**/* --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",

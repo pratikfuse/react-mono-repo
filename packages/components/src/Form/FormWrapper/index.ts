@@ -1,5 +1,4 @@
-import FormWrapper  from "./FormWrapper";
+import FormWrapper from './FormWrapper';
 
-export {
-    FormWrapper
-};
+console.log('testing');
+export { FormWrapper };

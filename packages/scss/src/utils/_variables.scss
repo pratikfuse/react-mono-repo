@@ -1,5 +1,5 @@
 $spacing: (
-  none: 0rem,
+  none: 0,
   xxxs: 0.25rem,
   // 4px
   xxs: 0.5rem,
@@ -21,7 +21,7 @@ $spacing: (
 ) !default;
 
 $shadows: (
-  base: 0px 4px 11px rgba(157, 157, 157, 0.21),
+  base: 0 4px 11px rgba(157, 157, 157, 0.21),
 );
 
 $breakpoints: (
