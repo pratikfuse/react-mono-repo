@@ -17,8 +17,6 @@ import Auth from './Auth';
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
-const fd = () => null;
-
 root.render(
   <React.StrictMode>
     <BrowserRouter>
