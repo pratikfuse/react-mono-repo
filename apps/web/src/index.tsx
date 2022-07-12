@@ -11,7 +11,7 @@ import {
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import Main from './main';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './Common/components/ProtectedRoute';
 import Auth from './Auth';
 
 const container = document.getElementById('root')!;

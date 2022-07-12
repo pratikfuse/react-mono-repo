@@ -1,9 +1,9 @@
-import AppContainer from "./AppContainer";
-import RouteHandler from "src/components/RouteHandler";
-import StudyManagementRouter from "./features/StudyManagement";
+import AppContainer from './AppContainer';
+import RouteHandler from 'src/Common/components/RouteHandler';
+import StudyManagementRouter from './features/StudyManagement';
 
 export enum APP_ROUTES {
-  STUDY_MANAGEMENT = "study-management/*",
+  STUDY_MANAGEMENT = 'study-management/*',
 }
 
 const routes: Array<IRoute> = [
@@ -14,7 +14,10 @@ const routes: Array<IRoute> = [
 ];
 
 const AppRouter = () => (
-  <RouteHandler routes={routes} container={<AppContainer />} />
+  <RouteHandler
+    routes={routes}
+    container={<AppContainer />}
+  />
 );
 
 export default AppRouter;
