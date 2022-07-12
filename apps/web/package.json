@@ -1,5 +1,5 @@
 {
-  "name": "@qryptek/web-app",
+  "name": "@lf-mono-web/web-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

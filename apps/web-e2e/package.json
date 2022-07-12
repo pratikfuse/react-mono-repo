@@ -1,0 +1,10 @@
+{
+  "name": "web-e2e",
+  "version": "1.0.0",
+  "description": "e2e test runner for web app",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test:e2e": "test e2e"
+  }
+}

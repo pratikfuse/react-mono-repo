@@ -1,5 +1,5 @@
 {
-  "name": "qryptek",
+  "name": "lf-mono-web",
   "version": "1.0.0",
   "author": {
     "email": "pratik.manandhar99@gmail.com",
@@ -15,7 +15,7 @@
     "start:todo": "lerna run start",
     "storybook": "lerna run storybook",
     "test:unit": "lerna run test:unit",
-    "test:e2e": "run e2e test with cypress",
+    "test:e2e": "run e2e test",
     "lint": "lerna run lint --stream",
     "prepare": "husky install"
   },

@@ -1,6 +1,6 @@
-# Qryptek Frontend Application
+# Web Frontend Application
 
-This repository contains the frontend application written in React for Qryptek project.
+This repository contains the frontend application written in React for web project.
 
 - Multi Tenant System
 
@@ -12,7 +12,7 @@ This repository contains the frontend application written in React for Qryptek p
 
 1.  Run `yarn install` to install lerna
 2.  Run `yarn bootstrap` to allow `lerna` to bootstrap the project with the required dependencies
-3.  Run `Qryptek` frontend application - `yarn start`
+3.  Run `web` frontend application - `yarn start`
 4.  Build scss and react common components - `yarn build` OR Build in watch mode `yarn dev`
 
 ## Tracking dependency versions

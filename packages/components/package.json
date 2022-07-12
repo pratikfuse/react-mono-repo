@@ -1,5 +1,5 @@
 {
-  "name": "@qryptek/components",
+  "name": "@lf-mono-repo/components",
   "version": "1.0.0",
   "main": "lib/index.js",
   "license": "MIT",
