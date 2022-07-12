@@ -14,13 +14,12 @@ const compile = (srcPath, destinationPath) => {
         includePaths: [path.resolve('src')],
     })
     fs.writeFileSync(path.resolve(destinationPath), result.css);
-    console.table(result.stats);
 }
 
-const getComponents = () => {
-    let sassComponents = [];
-    const rootDirectory = 'src';
-}
+// const getComponents = () => {
+//     let sassComponents = [];
+//     const rootDirectory = 'src';
+// }
 
 compile('src/global.scss', 'lib/global.css')
 compile('src/components/_button.scss', 'lib/button.css');
