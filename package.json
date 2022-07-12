@@ -9,6 +9,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "lerna": "lerna",
     "bootstrap": "lerna bootstrap",
     "dev": "lerna run dev",
     "start": "concurrently \"yarn dev\" \"lerna run start --stream\"",
