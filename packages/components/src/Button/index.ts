@@ -1,5 +1,5 @@
-import { Button } from "./button";
+import { Button } from './button';
 
-import "scss/lib/button.css";
+import '@lf-mono-web/scss/lib/button.css';
 
 export default Button;

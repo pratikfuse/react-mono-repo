@@ -1,5 +1,5 @@
 {
-  "name": "@lf-mono-repo/components",
+  "name": "@lf-mono-web/components",
   "version": "1.0.0",
   "main": "lib/index.js",
   "license": "MIT",

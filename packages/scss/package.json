@@ -1,5 +1,5 @@
 {
-  "name": "@lf-mono-repo/scss",
+  "name": "@lf-mono-web/scss",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
