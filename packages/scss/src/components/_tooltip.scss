@@ -1,4 +1,4 @@
-@import "utils/variables";
+@import 'utils/variables';
 /* Tooltip container */
 
 .tooltip {
@@ -25,14 +25,16 @@
       margin-left: -60px;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 100%;
         left: 50%;
         margin-left: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: #555 transparent transparent transparent;
+        border-color: #555
+          transparent
+          transparent;
       }
     }
 
@@ -41,14 +43,16 @@
       left: 125%;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 50%;
         right: 100%;
         margin-top: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: transparent #555 transparent transparent;
+        border-color: transparent
+          #555 transparent
+          transparent;
       }
     }
 
@@ -58,14 +62,15 @@
       margin-left: -60px;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         bottom: 100%;
         left: 50%;
         margin-left: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: transparent transparent #555 transparent;
+        border-color: transparent
+          transparent #555;
       }
     }
 
@@ -75,14 +80,16 @@
       right: 128%;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         top: 50%;
         left: 100%;
         margin-top: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: transparent transparent transparent #555;
+        border-color: transparent
+          transparent
+          transparent #555;
       }
     }
 

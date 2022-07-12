@@ -21,7 +21,8 @@ $spacing: (
 ) !default;
 
 $shadows: (
-  base: 0px 4px 11px rgba(157, 157, 157, 0.21),
+  base: 0 4px 11px
+    rgba(157, 157, 157, 0.21),
 );
 
 $breakpoints: (
@@ -33,4 +34,5 @@ $breakpoints: (
   // 1280px
 );
 
-$sides: top, bottom, left, right;
+$sides: top, bottom, left,
+  right;

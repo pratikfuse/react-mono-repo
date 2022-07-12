@@ -1,7 +1,9 @@
-@import "utils/variables";
-@import "utils/mixins.scss";
+@import 'utils/variables';
+@import 'utils/mixins.scss';
 
-@each $size, $value in $spacing {
+@each $size,
+  $value in $spacing
+{
   .width-#{size} {
     width: $value;
   }
@@ -12,17 +14,41 @@
 }
 
 /** Margin Mixin*/
-@include generate(ml, margin-left);
-@include generate(mt, margin-top);
-@include generate(mr, margin-right);
-@include generate(mb, margin-bottom);
+@include generate(
+  ml,
+  margin-left
+);
+@include generate(
+  mt,
+  margin-top
+);
+@include generate(
+  mr,
+  margin-right
+);
+@include generate(
+  mb,
+  margin-bottom
+);
 @include generate(m, margin);
 
 /** Padding mixin*/
-@include generate(pl, padding-left);
-@include generate(pt, padding-top);
-@include generate(pr, padding-right);
-@include generate(pb, padding-bottom);
+@include generate(
+  pl,
+  padding-left
+);
+@include generate(
+  pt,
+  padding-top
+);
+@include generate(
+  pr,
+  padding-right
+);
+@include generate(
+  pb,
+  padding-bottom
+);
 @include generate(p, padding);
 
 :root {

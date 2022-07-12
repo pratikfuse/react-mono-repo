@@ -1,10 +1,10 @@
 {
-  "name": "scss",
+  "name": "@qryptek/scss",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "stylelint src/**/*.scss",
+    "lintd": "stylelint src/**/*.scss",
     "lint:fix": "yarn lint --fix",
     "build": "node scripts/build.js",
     "dev": "nodemon --watch src --exec yarn build -e scss"

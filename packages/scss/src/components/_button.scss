@@ -22,11 +22,14 @@ $spacing: (
 
 .btn {
   border-radius: 5px;
+
   &.btn-pill {
     border-radius: 10px;
   }
 
-  @each $size, $value in $spacing {
+  @each $size,
+    $value in $spacing
+  {
     &.btn-#{$size} {
       width: $value;
     }
