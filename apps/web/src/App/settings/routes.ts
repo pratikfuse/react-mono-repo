@@ -1,5 +1,3 @@
-import StudyManagementRoutes from "src/App/features/StudyManagement/settings/routes";
-
-const AppRoutes: IRoute[] = [...StudyManagementRoutes];
+const AppRoutes: IRoute[] = [];
 
 export default AppRoutes;

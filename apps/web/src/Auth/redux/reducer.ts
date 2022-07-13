@@ -1,5 +1,9 @@
-import { createSlice, DeepPartial, PayloadAction } from "@reduxjs/toolkit";
-import { NavigateFunction } from "react-router-dom";
+import {
+  createSlice,
+  DeepPartial,
+  PayloadAction,
+} from '@reduxjs/toolkit';
+import { NavigateFunction } from 'react-router-dom';
 
 export interface AuthState {
   isLoggedIn: boolean;
@@ -7,12 +11,12 @@ export interface AuthState {
 }
 
 const initialState: AuthState = {
-  isLoggedIn: false,
+  isLoggedIn: true,
   user: {},
 };
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
     logIn: (
@@ -21,14 +25,14 @@ export const authSlice = createSlice({
         email: string;
         password: string;
         navigate: NavigateFunction;
-      }>
+      }>,
     ) => {
       if (
-        action.payload.email === "admin" &&
-        action.payload.password === "admin"
+        action.payload.email === 'admin' &&
+        action.payload.password === 'admin'
       ) {
         state.isLoggedIn = true;
-        action.payload.navigate("/app");
+        action.payload.navigate('/app');
       }
     },
   },

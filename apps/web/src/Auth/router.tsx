@@ -1,6 +1,7 @@
 import RouteHandler from 'src/Common/components/RouteHandler';
-import withAsync from 'src/helpers/withAsync';
 import AuthContainer from './Container';
+import LoginPage from './pages/Login';
+import Register from './pages/Register';
 
 enum ROUTES {
   LOGIN = 'login',
@@ -10,11 +11,11 @@ enum ROUTES {
 const routes: Array<IRoute> = [
   {
     path: ROUTES.LOGIN,
-    component: withAsync(() => import('./pages/Login')),
+    component: <LoginPage />,
   },
   {
     path: ROUTES.REGISTER,
-    component: withAsync(() => import('./pages/Register')),
+    component: <Register />,
   },
 ];
 
