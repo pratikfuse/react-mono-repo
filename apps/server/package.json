@@ -6,7 +6,7 @@
   "type": "commonjs",
   "description": "A json mock server for api testing",
   "scripts": {
-    "start:mock-server": "json-server -p 5000 ./db.json --middlewares middlewares/login.js"
+    "start": "json-server -p 5000 ./db.json --middlewares middlewares/login.js"
   },
   "dependencies": {
     "json-server": "^0.17.0"
