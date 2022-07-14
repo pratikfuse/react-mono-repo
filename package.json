@@ -43,8 +43,8 @@
   },
   "workspaces": {
     "packages": [
-      "packages/*",
-      "apps/*"
+      "src/packages/*",
+      "src/apps/*"
     ]
   },
   "engines": {

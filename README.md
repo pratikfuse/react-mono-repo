@@ -2,21 +2,30 @@
 
 This repository contains the frontend application written in React for web project.
 
-- Multi Tenant System
-
 ## Built with Lerna
 
 <img src="https://user-images.githubusercontent.com/645641/79596653-38f81200-80e1-11ea-98cd-1c6a3bb5de51.png" width="500" height="500" />
 
+## Features
+
+- Lerna v5
+- Create React App 3 (React v18)
+- Storybook v6
+- Yarn Workspaces
+-
+
 ## Steps to run
 
-1.  Run `yarn install` to install lerna
+1.  Run `yarn install` to install core packages
 2.  Run `yarn bootstrap` to allow `lerna` to bootstrap the project with the required dependencies
 3.  Run `web` frontend application - `yarn start`
 4.  Build scss and react common components - `yarn build`
 5.  Run `yarn start`
+6.  App will be running on <strong>http://localhost:3000</strong>
 
-App will be running on <strong>http://localhost:3000</strong>
+## How to build
+
+Run `yarn build` to build scss,components, and web application
 
 ## Tracking dependency versions
 

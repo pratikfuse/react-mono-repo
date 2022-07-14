@@ -1,7 +1,7 @@
 node_modules
 
-packages/scss/lib
-packages/components/lib
+src/packages/scss/lib/*.css
+src/packages/components/lib/*
 
 /coverage
 /build

@@ -11,7 +11,7 @@ const compile = (srcPath, destinationPath) => {
             path.resolve(srcPath)
         ).toString(),
         outputStyle: 'compressed',
-        includePaths: [path.resolve('src')],
+        includePaths: [path.resolve('styles')],
     })
     fs.writeFileSync(path.resolve(destinationPath), result.css);
 }
@@ -21,9 +21,9 @@ const compile = (srcPath, destinationPath) => {
 //     const rootDirectory = 'src';
 // }
 
-compile('src/global.scss', 'lib/global.css')
-compile('src/components/_button.scss', 'lib/button.css');
-compile('src/components/_tooltip.scss', 'lib/tooltip.css');
-compile('src/components/_page_loader.scss', 'lib/page_loader.css');
-compile('src/components/_pagination.scss', 'lib/pagination.css');
-compile('src/components/_table.scss', 'lib/table.css');
+compile('styles/global.scss', 'lib/global.css')
+compile('styles/components/_button.scss', 'lib/button.css');
+compile('styles/components/_tooltip.scss', 'lib/tooltip.css');
+compile('styles/components/_page_loader.scss', 'lib/page_loader.css');
+compile('styles/components/_pagination.scss', 'lib/pagination.css');
+compile('styles/components/_table.scss', 'lib/table.css');
