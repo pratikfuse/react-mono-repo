@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "test1",
+            "email": "vyaguta@vyaguta.com",
+            "password": "vyaguta",
+            "roles": [
+                "admin"
+            ]
+        }
+    ],
+    "employees": []
+}

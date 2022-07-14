@@ -9,7 +9,7 @@ const config = {
   },
   plugins: [ts()],
   preserveModules: true,
-  external: ["react", "scss", "classnames"],
+  external: ["react", "@lf-mono-web/scss", "classnames", "react-table"],
 };
 
 export default config;

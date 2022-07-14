@@ -1,7 +1,8 @@
 import React from 'react';
 import RouteHandler from 'src/Common/components/RouteHandler';
-import withAsync from 'src/helpers/withAsync';
 import StudyManagementContainer from './Container';
+import StudyBuilder from './pages/StudyBuilder';
+import SponsorManagement from './pages/SponsorManagement';
 
 export enum STUDY_MANAGEMENT_ROUTES {
   STUDY_BUILDER = 'study-builder',
@@ -11,18 +12,12 @@ export enum STUDY_MANAGEMENT_ROUTES {
 const routes: Array<IRoute> = [
   {
     path: STUDY_MANAGEMENT_ROUTES.STUDY_BUILDER,
-    component: withAsync(
-      () => import('./pages/StudyBuilder'),
-    ),
+    component: <StudyBuilder />,
     roles: ['admin'],
-    container: <StudyManagementContainer />,
   },
   {
     path: STUDY_MANAGEMENT_ROUTES.SPONSOR_MANAGEMENT,
-    component: withAsync(
-      () => import('./pages/SponsorManagement'),
-    ),
-    container: <StudyManagementContainer />,
+    component: <SponsorManagement />,
   },
 ];
 

@@ -1,4 +1,5 @@
-import "scss/lib/page_loader.css";
-import { PageLoader } from "./PageLoader.module";
+import { PageLoader } from './PageLoader.module';
+
+import '@lf-mono-web/scss/lib/page_loader.css';
 
 export default PageLoader;

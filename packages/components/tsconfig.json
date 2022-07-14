@@ -10,9 +10,10 @@
         "strictNullChecks": true,
         "noImplicitReturns": true,
         "noUnusedLocals": true,
+        "skipLibCheck": true,
         "noUnusedParameters": true,
         "declaration": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
     },
     "include": ["src"],
     "exclude": ["node_modules", "lib"]

@@ -1,26 +1,38 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from 'react';
+import nprogress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 // TODO Handle component delay and component timeout to avoid flicker
 
 interface ICreateComponentLoaderParams {
-  component: () => Promise<{ default: React.ComponentType<any> }>;
-  fallback?: React.ReactNode;
+  component: () => Promise<{
+    default: React.ComponentType<any>;
+  }>;
 }
 
+nprogress.configure({
+  showSpinner: false,
+  trickleSpeed: 4,
+});
+
 const FallbackComponent = () => {
-  return <div>Loading</div>;
+  useEffect(() => {
+    nprogress.start();
+    return () => {
+      nprogress.done();
+    };
+  });
+  return null;
 };
 
-const AsyncComponent: React.FC<ICreateComponentLoaderParams> = ({
-  component,
-  fallback,
-}) => {
-  const LazyComponent = React.lazy(component);
-  return (
-    <Suspense fallback={fallback || <FallbackComponent />}>
-      <LazyComponent />
-    </Suspense>
-  );
-};
+const AsyncComponent: React.FC<ICreateComponentLoaderParams> =
+  ({ component }) => {
+    const LazyComponent = React.lazy(component);
+    return (
+      <Suspense fallback={<FallbackComponent />}>
+        <LazyComponent />
+      </Suspense>
+    );
+  };
 
 export default AsyncComponent;

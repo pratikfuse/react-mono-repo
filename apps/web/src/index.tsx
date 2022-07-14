@@ -9,10 +9,9 @@ import {
   Navigate,
 } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import App from './App';
 import Main from './main';
 import ProtectedRoute from './Common/components/ProtectedRoute';
-import Auth from './Auth';
+import AsyncComponent from './Hoc/AsyncComponent';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -28,10 +27,21 @@ root.render(
             <Route
               path="/app/*"
               element={
-                <ProtectedRoute>{App}</ProtectedRoute>
+                <ProtectedRoute>
+                  <AsyncComponent
+                    component={() => import('./App')}
+                  />
+                </ProtectedRoute>
               }
             />
-            <Route path="/auth/*" element={Auth} />
+            <Route
+              path="/auth/*"
+              element={
+                <AsyncComponent
+                  component={() => import('./Auth')}
+                />
+              }
+            />
             <Route path="*" element={<div>404</div>} />
           </Routes>
         </Main>

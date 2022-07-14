@@ -9,19 +9,22 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "add-pkg": "lerna add",
     "bootstrap": "lerna bootstrap",
     "dev": "lerna run dev",
-    "start": "lerna run start --stream",
-    "start:todo": "lerna run start",
+    "start": "concurrently \"yarn dev\" \"lerna run start --stream\"",
+    "build": "lerna run build --scope @lf-mono-web/scss && lerna run build --scope @lf-mono-web/components && lerna run build --scope @lf-mono-web/web-app",
+    "serve": "serve",
+    "mock-server": "lerna run start --scope=@lf-mono-web/server",
     "storybook": "lerna run storybook",
     "test:unit": "lerna run test:unit",
     "test:e2e": "run e2e test",
-    "lint": "lerna run lint --stream",
-    "prepare": "husky install"
+    "lint": "lerna run lint"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
+    "concurrently": "^7.2.2",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-config-react-app": "^5.2.1",
@@ -31,12 +34,12 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
+    "husky": "^8.0.0",
+    "lerna": "^5.1.6",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
-    "stylelint-prettier": "^2.0.0",
-    "husky": "^8.0.0",
-    "lerna": "^5.1.6"
+    "stylelint-prettier": "^2.0.0"
   },
   "workspaces": {
     "packages": [

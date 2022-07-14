@@ -1,4 +1,4 @@
-import { authSlice } from "./reducer";
+import { authSlice } from './reducer';
 
 const { actions } = authSlice;
 

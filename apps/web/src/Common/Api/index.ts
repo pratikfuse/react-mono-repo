@@ -3,7 +3,8 @@ import userService from 'src/Auth/services/userService';
 import envConfig from '../config/env';
 
 // const auth0 = new Auth0();
-export default class Api {
+
+export class Api {
   handleError = (error: any) => {
     switch (error.response.status) {
       case 401:
@@ -43,7 +44,7 @@ export default class Api {
 
   axiosFunction = () => {
     return axios.create({
-      baseURL: envConfig.baseUrl,
+      baseURL: envConfig.baseUrl || 'http://localhost:5000',
       responseType: 'json',
       headers: {
         'Content-Type': 'application/json',
@@ -131,3 +132,6 @@ export default class Api {
     });
   }
 }
+
+const api = new Api();
+export default api;

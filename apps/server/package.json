@@ -1,0 +1,14 @@
+{
+  "name": "@lf-mono-web/server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "commonjs",
+  "description": "A json mock server for api testing",
+  "scripts": {
+    "start": "json-server -p 5000 ./db.json --middlewares middlewares/login.js"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}

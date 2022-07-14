@@ -1,5 +1,5 @@
 const Register: React.FC = () => {
-  return <div>Register Page</div>;
+  return <div>d</div>;
 };
 
 export default Register;

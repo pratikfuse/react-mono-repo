@@ -14,15 +14,16 @@ const compile = (srcPath, destinationPath) => {
         includePaths: [path.resolve('src')],
     })
     fs.writeFileSync(path.resolve(destinationPath), result.css);
-    console.table(result.stats);
 }
 
-const getComponents = () => {
-    let sassComponents = [];
-    const rootDirectory = 'src';
-}
+// const getComponents = () => {
+//     let sassComponents = [];
+//     const rootDirectory = 'src';
+// }
 
 compile('src/global.scss', 'lib/global.css')
 compile('src/components/_button.scss', 'lib/button.css');
 compile('src/components/_tooltip.scss', 'lib/tooltip.css');
 compile('src/components/_page_loader.scss', 'lib/page_loader.css');
+compile('src/components/_pagination.scss', 'lib/pagination.css');
+compile('src/components/_table.scss', 'lib/table.css');

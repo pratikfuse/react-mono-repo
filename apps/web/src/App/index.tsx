@@ -1,3 +1,3 @@
-import withAsync from "src/helpers/withAsync";
+import AppRouter from './router';
 
-export default withAsync(() => import("./router"));
+export default AppRouter;

@@ -1,41 +1,51 @@
+import { useState } from 'react';
 import Button from '@lf-mono-web/components/lib/Button';
 import { useAppDispatch } from 'src/Common/redux/hooks';
 import InputField from '@lf-mono-web/components/lib/InputField';
-import { useState } from 'react';
-import actions from 'src/Auth/redux/actions';
+import { login } from 'src/Auth/redux/reducer';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();
+
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-
+  const [error, setError] = useState<string>('');
   const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    const response = await dispatch(
+      login({ email, password }),
+    );
+    if (response.meta.requestStatus === 'rejected') {
+      alert('not valid');
+    } else if (
+      response.meta.requestStatus === 'fulfilled'
+    ) {
+      navigate('/');
+    }
+  };
 
   return (
     <div>
-      Login Page
+      <h4>Login </h4>
+      <small>{error}</small>
       <InputField
-        label="email"
-        onChange={e => setEmail(e.target.value)}
-      />
-      <InputField
-        label="password"
-        onChange={e => setPassword(e.target.value)}
-      />
-      <Button
-        onClick={() => {
-          dispatch(
-            actions.logIn({
-              email,
-              password,
-              navigate, // pass navigate to action to navigate to the app route on successful authentication
-            }),
-          );
+        onChange={e => {
+          setEmail(e.target.value);
+
+          if (e.target.value) {
+            setError('');
+          }
         }}
-      >
-        LogIn
-      </Button>
+        label="email"
+      />
+      <InputField
+        onChange={e => setPassword(e.target.value)}
+        label="password"
+      />
+
+      <Button onClick={handleLogin}>Login</Button>
     </div>
   );
 };
