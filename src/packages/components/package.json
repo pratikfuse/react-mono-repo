@@ -9,7 +9,7 @@
     "test": "jest --verbose",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:unit": "jest --verbose",
+    "test:unit": "jest --verbose --coverage",
     "lint": "eslint ./src/**/* --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx"
   },
   "devDependencies": {
@@ -40,10 +40,13 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.0",
+    "@hookform/resolvers": "^2.9.5",
     "classnames": "^2.3.1",
     "react-hook-form": "^7.33.1",
     "react-loadable": "^5.5.0",
-    "react-table": "7.1.0"
+    "react-table": "7.1.0",
+    "yup": "^0.32.11"
   },
   "jest": {
     "setupFilesAfterEnv": [
