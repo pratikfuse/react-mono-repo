@@ -12,7 +12,7 @@
     "add-pkg": "lerna add",
     "bootstrap": "lerna bootstrap",
     "dev": "lerna run dev",
-    "start": "concurrently \"yarn dev\" \"lerna run start --stream\"",
+    "start": "concurrently \"yarn dev\" \"lerna run start --scope @lf-mono-web/web-app\"",
     "build": "lerna run build --scope @lf-mono-web/scss && lerna run build --scope @lf-mono-web/components && lerna run build --scope @lf-mono-web/web-app",
     "serve": "serve",
     "mock-server": "lerna run start --scope=@lf-mono-web/server",
