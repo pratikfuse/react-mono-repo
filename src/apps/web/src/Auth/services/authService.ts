@@ -4,12 +4,15 @@ import {
   LoginRequest,
   LoginResponse,
 } from './authService.types';
+import userService, { UserService } from './userService';
 
 export class AuthService {
   private api: Api;
+  private userService: UserService;
 
   constructor() {
     this.api = api;
+    this.userService = userService;
   }
 
   async login(loginData: LoginRequest) {
@@ -23,7 +26,7 @@ export class AuthService {
   }
 
   async logout() {
-    localStorage.removeItem('access_token');
+    this.userService.logout();
   }
 }
 
