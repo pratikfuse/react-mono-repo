@@ -1,30 +1,46 @@
-import classNames from "classnames";
-import React, { ChangeEventHandler } from "react";
+import React from 'react';
+import {
+  Controller,
+  useFormContext,
+} from 'react-hook-form';
+import Input, { IInputProps } from './Input';
 
-interface IInputFieldProps {
-  wrapperClassname?: string;
-  className?: string;
-  placeholder?: string;
-  label: string;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
-  hidden?: boolean;
+interface IInputFormFieldProps
+  extends Omit<IInputProps, 'error'> {
+  required?: boolean;
 }
 
-const InputField: React.FC<IInputFieldProps> = (props) => {
-  const wrapperClassname = classNames("field-wrapper", props.wrapperClassname);
-  const inputClassname = classNames("text", props.className);
+const InputField: React.FC<IInputFormFieldProps> =
+  props => {
+    const { name, required, ...inputProps } = props;
 
-  return (
-    <div className={wrapperClassname}>
-      {props.label && <label>{props.label}</label>}
-      <input
-        className={inputClassname}
-        placeholder={props.placeholder}
-        onChange={props.onChange}
-        hidden={props.hidden}
+    const {
+      control,
+      formState: { errors },
+    } = useFormContext();
+
+    return (
+      <Controller
+        name={name}
+        rules={{
+          required: true,
+        }}
+        control={control}
+        render={({
+          field: { ref, value, onChange, ...field },
+        }) => {
+          return (
+            <Input
+              label={inputProps.label}
+              value={value}
+              onChange={onChange}
+              error={errors}
+              {...field}
+            />
+          );
+        }}
       />
-    </div>
-  );
-};
+    );
+  };
 
 export default InputField;
