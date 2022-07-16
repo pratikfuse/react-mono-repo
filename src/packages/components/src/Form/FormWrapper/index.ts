@@ -1,4 +1,3 @@
 import FormWrapper from './FormWrapper';
 
-console.log('testing');
-export { FormWrapper };
+export default FormWrapper;

@@ -1,12 +1,13 @@
-import classnames from "classnames";
-import sizes from "../utils/sizes";
-import React, { FC } from "react";
+import classnames from 'classnames';
+import sizes from '../utils/sizes';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 
-export interface IButtonProps {
+export interface IButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   // button click handler function
-  onClick: (...args: any[]) => void;
+  onClick?: (...args: any[]) => void;
   // css classname for button component
-  className?: string | string[];
+  className?: string;
   // button label to render
   children?: React.ReactNode;
   // pill
@@ -15,16 +16,24 @@ export interface IButtonProps {
   size?: keyof typeof sizes;
 }
 
-export const Button: FC<IButtonProps> = (props) => {
+export const Button: FC<IButtonProps> = props => {
+  const {
+    className,
+    children,
+    pill,
+    size,
+    ...buttonProps
+  } = props;
   const classNames = classnames(
-    "btn",
-    { [`btn-${props.size}`]: props.size },
-    { "btn-pill": props.pill },
-    props.className
+    'btn',
+    { [`btn-${size}`]: props.size },
+    { 'btn-pill': pill },
+    className,
   );
+
   return (
-    <button onClick={props.onClick} className={classNames}>
-      {props.children}
+    <button className={classNames} {...buttonProps}>
+      {children}
     </button>
   );
 };

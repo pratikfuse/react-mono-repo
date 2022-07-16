@@ -9,7 +9,7 @@ const config = {
   },
   plugins: [ts()],
   preserveModules: true,
-  external: ["react", "@lf-mono-web/scss", "classnames", "react-table"],
+  external: ["react", "@lf-mono-web/scss", "classnames", "react-table", "react-hook-form", "@hookform/error-message"],
 };
 
 export default config;
