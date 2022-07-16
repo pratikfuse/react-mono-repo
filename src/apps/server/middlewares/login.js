@@ -9,7 +9,16 @@ module.exports = (req, res, next) => {
                 },
             });
         } else {
-            res.status(400).json({ message: 'Invalid email or password' });
+
+            res.status(400).json({
+                error: {
+                    message: "Invalid username or password",
+                    errors: {
+                        email: "invalid username"
+                    }
+                }
+            });
+
         }
         return;
     }

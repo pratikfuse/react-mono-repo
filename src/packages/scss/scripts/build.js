@@ -5,7 +5,6 @@ const sass = require('node-sass');
 
 const compile = (srcPath, destinationPath) => {
 
-    console.log(srcPath, destinationPath)
     const result = sass.renderSync({
         data: fs.readFileSync(
             path.resolve(srcPath)

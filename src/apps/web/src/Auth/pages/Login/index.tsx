@@ -1,51 +1,78 @@
-import { useState } from 'react';
-import Button from '@lf-mono-web/components/lib/Button';
 import { useAppDispatch } from 'src/Common/redux/hooks';
-import InputField from '@lf-mono-web/components/lib/InputField';
+import { InputField } from '@lf-mono-web/components';
 import { login } from 'src/Auth/redux/reducer';
-import { useNavigate } from 'react-router-dom';
+import FormWrapper from '@lf-mono-web/components/lib/Form/FormWrapper';
+import React from 'react';
+import * as yup from 'yup';
+import Button from '@lf-mono-web/components/lib/Button';
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();
 
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [error, setError] = useState<string>('');
-  const navigate = useNavigate();
+  const handleLogin = async (values: any) => {
+    return await dispatch(login(values));
+  };
 
-  const handleLogin = async () => {
-    const response = await dispatch(
-      login({ email, password }),
-    );
-    if (response.meta.requestStatus === 'rejected') {
-      alert('not valid');
-    } else if (
-      response.meta.requestStatus === 'fulfilled'
-    ) {
-      navigate('/');
-    }
+  const defaultValues = {
+    email: '',
+    password: '',
+    user: {
+      name: '',
+    },
   };
 
   return (
     <div>
       <h4>Login </h4>
-      <small>{error}</small>
-      <InputField
-        onChange={e => {
-          setEmail(e.target.value);
 
-          if (e.target.value) {
-            setError('');
-          }
-        }}
-        label="email"
-      />
-      <InputField
-        onChange={e => setPassword(e.target.value)}
-        label="password"
-      />
+      <FormWrapper
+        handleSubmit={handleLogin}
+        mode="onBlur"
+        validationSchema={yup.object({
+          email: yup.string().email().required(),
+          password: yup.string().required(),
+          user: yup.object({
+            name: yup
+              .string()
+              .max(3)
+              .label('udsername')
+              .required(),
+          }),
+        })}
+        initialData={defaultValues}
+        render={({ formState }) => (
+          <React.Fragment>
+            <InputField
+              name="email"
+              label="Email"
+              placeholder="Your Email"
+            />
+            <InputField
+              name="password"
+              label="Password"
+              required
+              placeholder="Your password"
+            />
+            <InputField
+              name="user.name"
+              label="name"
+              required
+              placeholder="username"
+            />
 
-      <Button onClick={handleLogin}>Login</Button>
+            <Button
+              type="submit"
+              disabled={
+                (!formState.isValid &&
+                  formState.isSubmitted) ||
+                formState.isSubmitting
+              }
+            >
+              Login
+            </Button>
+          </React.Fragment>
+        )}
+      />
     </div>
   );
 };

@@ -11,7 +11,7 @@ export class Api {
       case 403:
         userService.logout();
         window.location.replace(
-          '/?msg=authentication failed',
+          '/auth/login?msg=authentication_failed',
         );
         break;
       case 400:
