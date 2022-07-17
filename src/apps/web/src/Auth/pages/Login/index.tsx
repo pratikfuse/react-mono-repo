@@ -1,24 +1,21 @@
 import { useAppDispatch } from 'src/Common/redux/hooks';
 import { InputField } from '@lf-mono-web/components';
-import { login } from 'src/Auth/redux/reducer';
 import FormWrapper from '@lf-mono-web/components/lib/Form/FormWrapper';
 import React from 'react';
 import * as yup from 'yup';
 import Button from '@lf-mono-web/components/lib/Button';
+import actions from 'src/Auth/redux/actions';
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const handleLogin = async (values: any) => {
-    return await dispatch(login(values));
+    return await dispatch(actions.login(values));
   };
 
   const defaultValues = {
     email: '',
     password: '',
-    user: {
-      name: '',
-    },
   };
 
   return (
@@ -31,13 +28,6 @@ const LoginPage: React.FC = () => {
         validationSchema={yup.object({
           email: yup.string().email().required(),
           password: yup.string().required(),
-          user: yup.object({
-            name: yup
-              .string()
-              .max(3)
-              .label('udsername')
-              .required(),
-          }),
         })}
         initialData={defaultValues}
         render={({ formState }) => (
@@ -53,13 +43,6 @@ const LoginPage: React.FC = () => {
               required
               placeholder="Your password"
             />
-            <InputField
-              name="user.name"
-              label="name"
-              required
-              placeholder="username"
-            />
-
             <Button
               type="submit"
               disabled={
