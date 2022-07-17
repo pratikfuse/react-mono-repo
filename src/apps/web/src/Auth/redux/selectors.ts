@@ -1,3 +1,4 @@
-import { RootState } from "src/Common/redux/store";
+import { RootState } from 'src/Common/redux/store';
 
-export const isLoggedInSelector = (state: RootState) => state.Auth.isLoggedIn;
+export const isLoggedInSelector = (state: RootState) =>
+  state.Auth.isLoggedIn;
