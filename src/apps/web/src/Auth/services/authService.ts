@@ -4,29 +4,53 @@ import {
   LoginRequest,
   LoginResponse,
 } from './authService.types';
-import userService, { UserService } from './userService';
 
 export class AuthService {
   private api: Api;
-  private userService: UserService;
 
   constructor() {
     this.api = api;
-    this.userService = userService;
   }
 
+  /**
+   *
+   * @param loginData call login api with user's emial and password
+   * set session data on successful login
+   * @returns
+   */
   async login(loginData: LoginRequest) {
-    return this.api.post<LoginRequest, LoginResponse>(
+    const loginResponse = await this.api.post<
+      LoginRequest,
+      LoginResponse
+    >(
       endpoints.auth.login,
       {
         email: loginData.email,
         password: loginData.password,
       },
+      false,
     );
+    this.setSession(loginResponse);
+    return loginResponse;
   }
 
-  async logout() {
-    this.userService.logout();
+  /**
+   *
+   * @param sessionData Session data returned from login api
+   * Store session data => access token, refresh token ..., to localstorage
+   */
+  setSession(sessionData: any) {
+    // localStorage.setItem({"ac"})
+  }
+
+  // TODO handle logout
+  /**
+   * Handler to remove client session from user's browser
+   */
+  async logout(): Promise<any> {
+    // return this.logout()
+    //   .then(async () => await this.logout())
+    //   .then(this.logout);
   }
 }
 

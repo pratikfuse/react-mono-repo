@@ -2,10 +2,8 @@ import axios, { AxiosResponse } from 'axios';
 import userService from 'src/Auth/services/userService';
 import envConfig from '../config/env';
 
-// const auth0 = new Auth0();
-
 export class Api {
-  handleError = (error: any) => {
+  private handleError = (error: any) => {
     switch (error.response.status) {
       case 401:
       case 403:
@@ -30,37 +28,45 @@ export class Api {
         };
       case 404:
         return {
-          _error: 'Requested Resource doesnot exist',
+          message: 'Requested Resource does not exist',
         };
       case 500:
       case 503:
       default:
         return {
-          _error:
+          message:
             'We ran into some problem while executing your request.',
         };
     }
   };
 
-  axiosFunction = () => {
+  axiosFunction = (withCredentials: boolean) => {
     return axios.create({
       baseURL: envConfig.baseUrl || 'http://localhost:5000',
       responseType: 'json',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        // Authorization: "Bearer " + auth0.getAccessToken(),
+        ...(withCredentials
+          ? {
+              Authorization: 'Bearer access toeken',
+            }
+          : {}),
       },
     });
   };
-  post<Data, Response>(url: string, data: Data) {
+  post<Data, Response>(
+    url: string,
+    data: Data,
+    withCredentials = true,
+  ) {
     const _self = this;
     return new Promise<AxiosResponse<Response>>(function (
       resolve,
       reject,
     ) {
       _self
-        .axiosFunction()
+        .axiosFunction(withCredentials)
         .post(url, data)
         .then(
           response => {
@@ -72,14 +78,18 @@ export class Api {
         );
     });
   }
-  get<Data, Response>(url: string, data: Data) {
+  get<Data, Response>(
+    url: string,
+    data: Data,
+    withCredentials = true,
+  ) {
     const _self = this;
     return new Promise<AxiosResponse<Response>>(function (
       resolve,
       reject,
     ) {
       _self
-        .axiosFunction()
+        .axiosFunction(withCredentials)
         .get(url, data)
         .then(
           response => {
@@ -92,14 +102,18 @@ export class Api {
     });
   }
 
-  delete<Data, Response>(url: string, data: Data) {
+  delete<Data, Response>(
+    url: string,
+    data: Data,
+    withCredentials = true,
+  ) {
     const _self = this;
     return new Promise<AxiosResponse<Response>>(function (
       resolve,
       reject,
     ) {
       _self
-        .axiosFunction()
+        .axiosFunction(withCredentials)
         .delete(url, data)
         .then(
           response => {
@@ -112,14 +126,18 @@ export class Api {
     });
   }
 
-  update<Data, Response>(url: string, data: Data) {
+  update<Data, Response>(
+    url: string,
+    data: Data,
+    withCredentials = true,
+  ) {
     const _self = this;
     return new Promise<AxiosResponse<Response>>(function (
       resolve,
       reject,
     ) {
       _self
-        .axiosFunction()
+        .axiosFunction(withCredentials)
         .put(url, data)
         .then(
           response => {
