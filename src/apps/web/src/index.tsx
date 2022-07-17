@@ -12,6 +12,7 @@ import reportWebVitals from './reportWebVitals';
 import Main from './main';
 import ProtectedRoute from './Common/components/ProtectedRoute';
 import AsyncComponent from './Hoc/AsyncComponent';
+import { ToastContainer } from '@lf-mono-web/components';
 import '@lf-mono-web/scss/lib/global.css';
 
 const container = document.getElementById('root')!;
@@ -48,6 +49,7 @@ root.render(
         </Main>
       </Provider>
     </BrowserRouter>
+    <ToastContainer />
   </React.StrictMode>,
 );
 

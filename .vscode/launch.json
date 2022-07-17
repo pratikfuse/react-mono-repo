@@ -7,7 +7,7 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch chrome debugger ${cwd}",
+            "name": "Launch chrome debugger",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}",
             "sourceMaps": true,

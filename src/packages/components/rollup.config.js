@@ -9,7 +9,16 @@ const config = {
   },
   plugins: [ts()],
   preserveModules: true,
-  external: ["react", "@lf-mono-web/scss", "classnames", "react-table", "react-hook-form", "@hookform/error-message"],
+  external: [
+    "react",
+    "@lf-mono-web/scss",
+    "classnames",
+    "react-table",
+    "react-hook-form",
+    "@hookform/error-message",
+    "react-toastify",
+    "react-toastify/dist/ReactToastify.css"
+  ],
 };
 
 export default config;
