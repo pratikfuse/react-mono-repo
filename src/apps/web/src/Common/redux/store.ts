@@ -24,7 +24,10 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware => {
     return getDefaultMiddleware({
-      serializableCheck: false,
+      immutableCheck: true, // makes sure store is not mutated directly
+      serializableCheck: {
+        ignoredActions: ['persist/PERSIST'], // ignore serializable check for redux-persist
+      },
     });
   },
 });
