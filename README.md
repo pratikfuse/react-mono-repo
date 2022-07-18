@@ -20,6 +20,7 @@ This repository contains the frontend application written in React for web proje
 2.  Run `yarn bootstrap` to allow `lerna` to bootstrap the project with the required dependencies
 3.  Run `web` frontend application - `yarn start`
 4.  App will be running on <strong>http://localhost:3000</strong>
+5.  Run `yarn mock-server` to start the mock node server at [src/apps/server](https://github.com/pratikfuse/react-mono-repo/tree/master/src/apps/server)
 
 ## How to build
 
