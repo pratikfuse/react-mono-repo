@@ -20,11 +20,11 @@ type ValidationSchema<Type> = {
 export interface IFormWrapperProps<IInitialData> {
   ref?: React.RefObject<any>;
   initialData?: IInitialData;
-  handleSubmit: SubmitHandler<any>;
+  handleSubmit: SubmitHandler<IInitialData>;
   methods?: any;
   mode?: Mode;
   revalidateMode?: Exclude<Mode, 'onTouched' | 'all'>;
-  validationSchema: yup.ObjectSchema<
+  validationSchema?: yup.ObjectSchema<
     ValidationSchema<DeepPartial<IInitialData>>
   >;
   render: (
@@ -38,14 +38,14 @@ function FormWrapper<IInitialData extends FieldValues>(
   props: IFormWrapperProps<IInitialData>,
 ) {
   const resolver = useYupValidationResolver(
-    props.validationSchema,
+    props.validationSchema || yup.object().unknown(),
   );
   const methods = useForm<IInitialData>({
     mode: props.mode || 'all',
     reValidateMode: props.revalidateMode || 'onChange',
     defaultValues:
       props.initialData as DeepPartial<IInitialData>,
-    resolver,
+    resolver: props.validationSchema ? resolver : undefined,
   });
 
   async function submit(values: IInitialData) {
