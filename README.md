@@ -12,7 +12,7 @@ This repository contains the frontend application written in React for web proje
 - Create React App 3 (React v18)
 - Storybook v6
 - Yarn Workspaces
--
+- Cypress e2e
 
 ## Steps to run
 
