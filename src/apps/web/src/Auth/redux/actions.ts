@@ -23,9 +23,6 @@ export default {
       rejectValue: ErrorResponse;
     }
   >('auth/login', async ({ email, password }, thunk) => {
-    if (email === 'admin') {
-      throw new Error('username not found');
-    }
     try {
       const response = await authService.login({
         email,

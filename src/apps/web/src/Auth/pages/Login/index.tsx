@@ -1,20 +1,13 @@
-import {
-  useAppDispatch,
-  useAppSelector,
-} from 'src/Common/redux/hooks';
+import { useAppDispatch } from 'src/Common/redux/hooks';
 import { InputField } from '@lf-mono-web/components';
 import FormWrapper from '@lf-mono-web/components/lib/Form/FormWrapper';
 import React from 'react';
 import * as yup from 'yup';
 import Button from '@lf-mono-web/components/lib/Button';
 import actions from 'src/Auth/redux/actions';
-import { isLoggedInSelector } from 'src/Auth/redux/selectors';
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();
-
-  const isLoggedIn = useAppSelector(isLoggedInSelector);
-  console.log(isLoggedIn);
 
   const handleLogin = async (values: any) => {
     return await dispatch(actions.login(values));
