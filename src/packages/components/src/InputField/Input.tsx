@@ -39,7 +39,7 @@ const Input: React.FC<IInputProps> = props => {
         errors={props.error}
         name={props.name}
         render={({ message }) => {
-          return <span>{message}</span>;
+          return <span className="danger">{message}</span>;
         }}
       />
     </div>

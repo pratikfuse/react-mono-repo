@@ -18,7 +18,9 @@
     "mock-server": "lerna run start --scope=@lf-mono-web/server",
     "storybook": "lerna run storybook",
     "test:unit": "lerna run test:unit",
-    "test:e2e": "run e2e test",
+    "start:web-test": "lerna run start-test --scope @lf-mono-web/web-app",
+    "test:cypress": "lerna run test:ci --scope @lf-mono-web/web-e2e",
+    "test:e2e": "start-server-and-test start:web-test 3000 test:cypress",
     "lint": "lerna run lint"
   },
   "devDependencies": {
@@ -70,5 +72,9 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}"
     ]
+  },
+  "dependencies": {
+    "@cypress/instrument-cra": "^1.4.0",
+    "start-server-and-test": "^1.14.0"
   }
 }
