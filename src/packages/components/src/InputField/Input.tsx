@@ -26,8 +26,16 @@ const Input: React.FC<IInputProps> = props => {
   );
   return (
     <div className={wrapperClassname}>
-      {props.label && <label>{props.label}</label>}
+      {props.label && (
+        <label
+          htmlFor={props.name}
+          aria-labelledby={props.name}
+        >
+          {props.label}
+        </label>
+      )}
       <input
+        id={props.name}
         className={inputClassname}
         placeholder={props.placeholder}
         onChange={props.onChange}

@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "stylelint src/**/*.scss --fix",
+    "lint": "stylelint styles/**/*.scss --fix",
     "lint:fix": "yarn lint --fix",
     "build": "node scripts/build.js",
     "dev": "nodemon --watch src --exec yarn build -e scss"

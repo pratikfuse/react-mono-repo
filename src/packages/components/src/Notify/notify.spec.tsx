@@ -14,7 +14,7 @@ describe('Notification', () => {
 
     act(() => {
       showSuccess('Task completed successfully');
-      jest.runAllTimers();
+      jest.useFakeTimers();
     });
 
     expect(true).toBe(true);

@@ -10,7 +10,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test:unit": "jest --verbose --coverage",
-    "lint": "eslint ./src/**/* --ignore-path ../../.eslintignore --ext ts --ext tsx --ext js --ext jsx"
+    "lint": "eslint ./src/**/* --ignore-path ../../../.eslintignore --ext ts --ext tsx --ext js --ext jsx"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -52,7 +52,7 @@
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.ts"
+      "<rootDir>/setupTests.js"
     ],
     "testEnvironment": "jsdom",
     "moduleNameMapper": {

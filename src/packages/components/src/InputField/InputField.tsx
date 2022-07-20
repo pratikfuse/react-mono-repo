@@ -12,7 +12,8 @@ interface IInputFormFieldProps
 
 const InputField: React.FC<IInputFormFieldProps> =
   props => {
-    const { name, required, ...inputProps } = props;
+    const { name, required, placeholder, ...inputProps } =
+      props;
 
     const {
       control,
@@ -33,6 +34,7 @@ const InputField: React.FC<IInputFormFieldProps> =
             <Input
               label={inputProps.label}
               value={value}
+              placeholder={placeholder}
               onChange={onChange}
               error={errors}
               {...field}
