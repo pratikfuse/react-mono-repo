@@ -41,6 +41,7 @@ const Input: React.FC<IInputProps> = props => {
         onChange={props.onChange}
         hidden={props.hidden}
         value={props.value}
+        data-testid={`test-${[props.name]}`}
         name={props.name}
       />
       <ErrorMessage
