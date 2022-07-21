@@ -1,5 +1,9 @@
-import { fireEvent } from '@storybook/testing-library';
-import { cleanup, render } from '@testing-library/react';
+import {
+  cleanup,
+  render,
+  screen,
+} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import Button from '../Button';
 import FormWrapper from '../Form/FormWrapper';
@@ -7,17 +11,16 @@ import InputField from '../InputField';
 describe('Form UI', () => {
   afterEach(cleanup);
 
-  it('should render a form with text fields and submit button', () => {
+  it('should render a form with text fields and submit button', async () => {
     const submitHandler = jest.fn();
 
-    const {
-      getByLabelText,
-      getByText,
-      getByPlaceholderText,
-    } = render(
+    render(
       <FormWrapper
         handleSubmit={submitHandler}
-        initialData={{ email: '', password: '' }}
+        initialData={{
+          email: '',
+          password: '',
+        }}
         render={({ formState }) => (
           <React.Fragment>
             <InputField
@@ -44,31 +47,32 @@ describe('Form UI', () => {
         )}
       />,
     );
-    expect(getByLabelText('Email')).toBeTruthy();
-    expect(getByLabelText('Password')).toBeInTheDocument();
 
-    const submitButton = getByText('Submit');
+    const emailField = screen.getByTestId('test-email');
+    const passwordField =
+      screen.getByTestId('test-password');
+
+    expect(emailField).toBeInTheDocument();
+    expect(passwordField).toBeInTheDocument();
+
+    const submitButton = screen.getByRole('button');
     expect(submitButton).toBeInTheDocument();
 
-    fireEvent.click(submitButton);
+    await userEvent.click(submitButton);
+    // button should be disabled for invalid form
     expect(submitButton).toBeDisabled();
 
-    const emailField = getByPlaceholderText(
-      'Enter your email',
-    );
-    const passwordField = getByPlaceholderText(
-      'Enter your password',
-    );
+    await userEvent.type(emailField, 'user1@admin.com');
+    await userEvent.type(passwordField, 'admin');
 
-    fireEvent.change(emailField, {
-      target: { value: 'user1@admin.com' },
+    expect(submitButton).toBeEnabled();
+
+    await userEvent.click(submitButton);
+
+    expect(submitHandler).toBeCalledWith({
+      email: 'user1@admin.com',
+      password: 'admin',
     });
-
-    fireEvent.change(passwordField, {
-      target: { value: 'admin' },
-    });
-
-    fireEvent.click(submitButton);
   });
 
   it('should render a form with array fields', () => {});
